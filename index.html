@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Corredor Infinito</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="game"></canvas>
+
+    <div id="hud" class="hidden">
+      <div class="hud-left">
+        <div class="label">Puntuación</div>
+        <div id="score">0</div>
+        <div id="sceneName" class="scene-name">Día</div>
+      </div>
+      <div class="hud-center">
+        <div id="comboWrap" class="combo-wrap hidden">
+          <div id="combo">x1</div>
+          <div class="combo-sub">COMBO</div>
+        </div>
+        <div id="banner" class="banner hidden"></div>
+      </div>
+      <div class="hud-right">
+        <div class="label">Récord</div>
+        <div id="best">0</div>
+        <div id="health" class="health" aria-label="Salud"></div>
+        <div id="checkLabel" class="check-label">Sin punto de control</div>
+      </div>
+    </div>
+
+    <div id="hint" class="hint hidden">
+      <span>Derecha o Saltar: brinca</span>
+      <span class="dot">•</span>
+      <span>Izquierda o Deslizar: agáchate</span>
+    </div>
+
+    <div id="pads" class="pads hidden">
+      <button id="slidePad" type="button" aria-label="Deslizar">
+        <span class="pad-icon">↓</span>
+        <span>Deslizar</span>
+      </button>
+      <button id="jumpPad" type="button" aria-label="Saltar">
+        <span class="pad-icon">↑</span>
+        <span>Saltar</span>
+      </button>
+    </div>
+
+    <div id="menu" class="overlay">
+      <div class="card">
+        <p class="kicker">SIN FIN</p>
+        <h1>CORREDOR</h1>
+        <p class="lede">Día y noche, lava en la superficie y aviones en el cielo. Salta, deslízate, recoge bebidas y guarda un punto de control para continuar.</p>
+        <div class="controls">
+          <div><b>Saltar</b><span>Botón derecho o toque derecho</span></div>
+          <div><b>Agacharse</b><span>Mantén el botón izquierdo</span></div>
+          <div><b>Botella</b><span>+1 vida</span></div>
+          <div><b>Bandera</b><span>Punto de control</span></div>
+        </div>
+        <button id="startBtn" class="btn primary">Correr</button>
+        <button id="menuContinueBtn" class="btn ghost hidden">Continuar desde el punto</button>
+        <p class="best-line">Mejor: <span id="menuBest">0</span></p>
+      </div>
+    </div>
+
+    <div id="gameover" class="overlay hidden">
+      <div class="card">
+        <p class="kicker danger">COLISIÓN</p>
+        <h1>FIN DEL JUEGO</h1>
+        <div class="stats">
+          <div>
+            <div class="label">Puntos</div>
+            <div id="finalScore" class="big">0</div>
+          </div>
+          <div>
+            <div class="label">Combo máx.</div>
+            <div id="finalCombo" class="big">x1</div>
+          </div>
+          <div>
+            <div class="label">Récord</div>
+            <div id="finalBest" class="big">0</div>
+          </div>
+        </div>
+        <p id="newRecord" class="record-banner hidden">¡Nuevo récord!</p>
+        <button id="continueBtn" class="btn primary">Continuar desde el punto</button>
+        <button id="restartBtn" class="btn ghost">Empezar de cero</button>
+        <button id="menuBtn" class="btn ghost">Menú</button>
+      </div>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
